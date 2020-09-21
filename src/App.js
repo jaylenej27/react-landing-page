@@ -1,5 +1,6 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
+// eslint-disable-next-line
 import React from 'react';
 import { jsx, css } from '@emotion/core';
 import logo from './images/logo.png';
@@ -68,6 +69,23 @@ const navBar = css`
 
 const videoContainer = css`
   ${centeredContainerStyles}
+  position: absolute;
+  text-align: center;
+  padding: 2rem 0.5rem;
+
+  h1 {
+    color: #ffffff;
+    max-width: 40rem;
+    font-size: 64px;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  button {
+    padding: 14px 22px 10px;
+    color: white;
+    font-size: 14px;
+  }
 `;
 
 const videoDisplay = css`
@@ -92,6 +110,16 @@ const quizButton = css`
 
 const firstSectionStyle = css`
   ${centeredContainerStyles}
+  margin: 0 280px;
+  padding: 0 24px;
+`;
+
+const categoryImages = css`
+  max-width: 19.75rem;
+  margin: 0 0.75rem;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
 `;
 
 const secondSectionStyle = css`
@@ -132,6 +160,11 @@ function App() {
           </div>
         </header>
 
+        <section css={videoContainer}>
+          <h1>Personal styling for everybody</h1>
+          <button css={quizButton}>Take your style quiz</button>
+        </section>
+
         <section css={videoDisplay}>
           <video
             src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/gateway-stitch-fix-video.10yH0.mp4"
@@ -142,11 +175,6 @@ function App() {
           ></video>
         </section>
 
-        <section css={videoContainer}>
-          <h1>Personal styling for everybody</h1>
-          <button css={quizButton}>Take your style quiz</button>
-        </section>
-
         <section css={firstSectionStyle}>
           <h2>We'll Find Style For Your Life</h2>
           <p>
@@ -154,9 +182,24 @@ function App() {
             size & style, you’ll always look and feel your best. No subscription
             required.
           </p>
-          <img alt="" />
-          <img alt="" />
-          <img alt="" />
+          <a css={categoryImages} href="a#">
+            <img
+              src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-womens-plus-size-inclusive@1x.2GQbi.jpg"
+              alt="Stitch Fix plus-size clothing outfit including a plus-size navy and white printed jumpsuit with white tee."
+            />
+          </a>
+          <a css={categoryImages} href="a#">
+            <img
+              src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-mens-casual-outdoor@1x.Ar-ie.jpg"
+              alt="Stitch Fix men’s outfit including a pink tee, tan windbreaker jacket and black jogger sweatpants."
+            />
+          </a>
+          <a css={categoryImages} href="a#">
+            <img
+              src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-kids-activewear@1x.1L_Lm.jpg"
+              alt="Stitch Fix Kids blue ombre hoodie sweatshirt with palm tree graphic."
+            />
+          </a>
         </section>
 
         <section css={secondSectionStyle}>

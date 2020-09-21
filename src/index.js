@@ -20,17 +20,11 @@ ReactDOM.render(
             font-family: --sans-serif;
           }
 
-          h1 {
-            color: #ffffff;
-            display: block;
-            text-align: center;
-            text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
-          }
-
           h2 {
             color: #25282d;
             display: block;
             text-align: center;
+            font-size: 28px;
           }
 
           p {
@@ -39,6 +33,7 @@ ReactDOM.render(
             margin-block-end: 1em;
             margin-inline-start: 0px;
             margin-inline-end: 0px;
+            font-size: 16px;
           }
         `}
       />
