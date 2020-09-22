@@ -10,6 +10,7 @@ const centeredContainerStyles = css`
   text-align: center;
   justify-content: center;
   display: block;
+  position: relative;
 `;
 
 const headerStyles = css`
@@ -26,6 +27,8 @@ const headerStyles = css`
   border-bottom: 2px solid #f2f3f4;
   margin-bottom: 2px;
   transition: transform 0.5s ease;
+  z-index: 10;
+  display: flex;
 `;
 
 const logoStyles = css`
@@ -35,16 +38,29 @@ const logoStyles = css`
 `;
 
 const navBar = css`
+  top: 0;
   cursor: pointer;
   display: flex;
   justify-content: space-evenly;
   transition: background-size 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   transition: outline-offset 0.15s ease-out;
+  position: relative;
 
-  &:hover {
-    background-image: linear-gradient(#bfbfbf, #bfbfbf);
-    background-size: 100% 4px;
-    background-position-x: 50%;
+  a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #4a4a4a;
+    transition: color 0.2s;
+    line-height: 31px;
+    transition: background-size 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background-position-y: 100%;
+
+    &:hover {
+      background-image: linear-gradient(#bfbfbf, #bfbfbf);
+      background-size: 100% 4px;
+      background-position-x: 50%;
+      background-repeat: no-repeat;
+    }
   }
 
   button {
@@ -52,7 +68,7 @@ const navBar = css`
     padding: calc(0.75rem - 2px) 1rem calc(0.5rem - 2px);
     border: 1px solid #515762;
     position: absolute;
-    right: 0.85rem;
+    right: 120px;
     min-width: 0;
     display: block;
     line-height: 1;
@@ -67,11 +83,27 @@ const navBar = css`
   }
 `;
 
+const navULLeft = css`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  height: 100%;
+  top: 0;
+`;
+
+const navULRight = css`
+  right: 6.75rem;
+`;
+
 const videoContainer = css`
   ${centeredContainerStyles}
   position: absolute;
   text-align: center;
   padding: 2rem 0.5rem;
+  align-items: center;
+  margin: 0;
+  left: 30%;
 
   h1 {
     color: #ffffff;
@@ -79,12 +111,6 @@ const videoContainer = css`
     font-size: 64px;
     margin-bottom: 1.5rem;
     text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
-  }
-
-  button {
-    padding: 14px 22px 10px;
-    color: white;
-    font-size: 14px;
   }
 `;
 
@@ -106,6 +132,16 @@ const quizButton = css`
   background-color: #dd2e3e;
   border: 2px solid transparent;
   cursor: pointer;
+  padding: 14px 22px 10px;
+  color: white;
+  font-size: 14px;
+  display: inline-block;
+  transition: background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+  &:hover {
+    transition: background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background-color: #cd243b;
+  }
 `;
 
 const firstSectionStyle = css`
@@ -114,12 +150,20 @@ const firstSectionStyle = css`
   padding: 0 24px;
 `;
 
-const categoryImages = css`
-  max-width: 19.75rem;
-  margin: 0 0.75rem;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
+const categoryImageHolder = css`
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  img {
+    max-width: 19.75rem;
+    margin: 0 0.75rem;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+  }
 `;
 
 const secondSectionStyle = css`
@@ -138,6 +182,16 @@ const fifthSectionStyle = css`
   ${centeredContainerStyles}
 `;
 
+const footer = css`
+  border-top: 1px solid #d9d9d9;
+`;
+
+const trademark = css`
+  border-top: 1px solid #d9d9d9;
+  font-size: 13px;
+  color: #25282d;
+`;
+
 function App() {
   return (
     <>
@@ -147,17 +201,21 @@ function App() {
             <a href="a#">
               <img css={logoStyles} src={logo} alt="Stitchfix logo" />
             </a>
-            <nav css={navBar}>
+          </div>
+          <nav css={navBar}>
+            <div css={navULLeft}>
               <a href="a#">Men </a>
               <a href="a#">Women </a>
               <a href="a#">Kids </a>
+            </div>
+            <div css={navULRight}>
               <a href="a#">Style </a>
               <a href="a#">Guide </a>
               <a href="a#">FAQ </a>
               <a href="a#">Gift Cards </a>
               <button>Sign In</button>
-            </nav>
-          </div>
+            </div>
+          </nav>
         </header>
 
         <section css={videoContainer}>
@@ -182,24 +240,26 @@ function App() {
             size & style, you’ll always look and feel your best. No subscription
             required.
           </p>
-          <a css={categoryImages} href="a#">
-            <img
-              src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-womens-plus-size-inclusive@1x.2GQbi.jpg"
-              alt="Stitch Fix plus-size clothing outfit including a plus-size navy and white printed jumpsuit with white tee."
-            />
-          </a>
-          <a css={categoryImages} href="a#">
-            <img
-              src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-mens-casual-outdoor@1x.Ar-ie.jpg"
-              alt="Stitch Fix men’s outfit including a pink tee, tan windbreaker jacket and black jogger sweatpants."
-            />
-          </a>
-          <a css={categoryImages} href="a#">
-            <img
-              src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-kids-activewear@1x.1L_Lm.jpg"
-              alt="Stitch Fix Kids blue ombre hoodie sweatshirt with palm tree graphic."
-            />
-          </a>
+          <div css={categoryImageHolder}>
+            <a href="a#">
+              <img
+                src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-womens-plus-size-inclusive@1x.2GQbi.jpg"
+                alt="Stitch Fix plus-size clothing outfit including a plus-size navy and white printed jumpsuit with white tee."
+              />
+            </a>
+            <a css={categoryImageHolder} href="a#">
+              <img
+                src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-mens-casual-outdoor@1x.Ar-ie.jpg"
+                alt="Stitch Fix men’s outfit including a pink tee, tan windbreaker jacket and black jogger sweatpants."
+              />
+            </a>
+            <a css={categoryImageHolder} href="a#">
+              <img
+                src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-kids-activewear@1x.1L_Lm.jpg"
+                alt="Stitch Fix Kids blue ombre hoodie sweatshirt with palm tree graphic."
+              />
+            </a>
+          </div>
         </section>
 
         <section css={secondSectionStyle}>
@@ -252,7 +312,54 @@ function App() {
 
         <section></section>
 
-        <footer></footer>
+        <footer css={footer}>
+          <div>
+            <div>Logo & Location</div>
+            <div>
+              <h3>Service</h3>
+
+              <a href="a#">Iphone App</a>
+              <a href="a#">Plus Sizes</a>
+              <a href="a#">Gift Cards</a>
+              <a href="a#">Maternity</a>
+              <a href="a#">Petite</a>
+              <a href="a#">Big & Tall</a>
+              <a href="a#">Women's Jeans</a>
+              <a href="a#">Business Casual</a>
+            </div>
+            <div>
+              <h3>The Company</h3>
+
+              <a href="a#">About Us</a>
+              <a href="a#">Press</a>
+              <a href="a#">Investor Relations</a>
+              <a href="a#">Careers</a>
+              <a href="a#">Tech Blog</a>
+            </div>
+            <div>
+              <h3>Questions?</h3>
+
+              <a href="a#">FAQ's</a>
+              <a href="a#">Help</a>
+            </div>
+            <div>
+              <img alt="Facebook" />
+              <img alt="Instagram" />
+              <img alt="Pinterest" />
+              <img alt="Twitter" />
+            </div>
+          </div>
+          <div css={trademark}>
+            <p>Stitch Fix and Fix are trademarks of Stitch Fix, Inc.</p>
+            <p>
+              <a href="#a">Terms of Use</a> - <a href="#a">Privacy Policy</a> -{' '}
+              <a href="#a">Supply Chain Information</a> -{' '}
+              <a href="#a">Ad Choices</a> -{' '}
+              <a href="#a">CA Notice at Collection</a> -{' '}
+              <a href="#a">Cookies Settings</a> - <a href="#a">Sitemap</a>
+            </p>
+          </div>
+        </footer>
       </div>
     </>
   );
