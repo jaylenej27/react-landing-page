@@ -4,6 +4,8 @@
 import React from 'react';
 import { jsx, css } from '@emotion/core';
 import logo from './images/logo.png';
+import fb from './images/fb.png';
+import insta from './images/insta.png';
 
 const centeredContainerStyles = css`
   max-width: 100%;
@@ -41,7 +43,6 @@ const navBar = css`
   top: 0;
   cursor: pointer;
   display: flex;
-  justify-content: space-evenly;
   transition: background-size 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   transition: outline-offset 0.15s ease-out;
   position: relative;
@@ -62,24 +63,24 @@ const navBar = css`
       background-repeat: no-repeat;
     }
   }
+`;
 
-  button {
-    background-color: transparent;
-    padding: calc(0.75rem - 2px) 1rem calc(0.5rem - 2px);
-    border: 1px solid #515762;
-    position: absolute;
-    right: 120px;
-    min-width: 0;
-    display: block;
-    line-height: 1;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+const signInButton = css`
+  background-color: transparent;
+  padding: 10px 16px 6px;
+  border: 1px solid #515762;
+  position: relative;
+  min-width: 0;
+  display: flex;
+  line-height: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  justify-content: flex-end;
 
-    &:hover {
-      transition: background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-      background-color: #e7e8e9;
-    }
+  &:hover {
+    transition: background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background-color: #e7e8e9;
   }
 `;
 
@@ -90,10 +91,13 @@ const navULLeft = css`
   display: flex;
   height: 100%;
   top: 0;
+  justify-content: flex-start;
 `;
 
 const navULRight = css`
-  right: 6.75rem;
+  display: flex;
+  justify-content: flex-end;
+  /* right: 6.75rem; */
 `;
 
 const videoContainer = css`
@@ -184,12 +188,67 @@ const fifthSectionStyle = css`
 
 const footer = css`
   border-top: 1px solid #d9d9d9;
+  display: flex;
+  transition: background-size 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: outline-offset 0.15s ease-out;
+
+  a {
+    text-decoration: none;
+    color: #25282d;
+    transition: color 0.2s;
+    transition: background-size 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background-position-y: 100%;
+
+    &:hover {
+      background-image: linear-gradient(#000000, #000000);
+      background-size: 100% 0.5px;
+      background-position-x: 0;
+      background-repeat: no-repeat;
+    }
+  }
+`;
+
+const someDiv = css`
+  ${centeredContainerStyles}
+  margin: 0 280px;
+  padding: 0 24px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  text-align: left;
+
+  /* div {
+    min-width: 85px;
+  } */
+`;
+
+const bottomLinks = css`
+  display: flex;
+  flex-direction: column;
 `;
 
 const trademark = css`
   border-top: 1px solid #d9d9d9;
   font-size: 13px;
   color: #25282d;
+  transition: background-size 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+  a {
+    text-decoration: none;
+    color: #25282d;
+    transition: color 0.2s;
+    transition: background-size 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    background-position-y: 100%;
+
+    &:hover {
+      background-image: linear-gradient(#000000, #000000);
+      background-size: 100% 0.5px;
+      background-position-x: 50%;
+      background-repeat: no-repeat;
+    }
+  }
 `;
 
 function App() {
@@ -197,13 +256,11 @@ function App() {
     <>
       <div>
         <header css={headerStyles}>
-          <div>
-            <a href="a#">
-              <img css={logoStyles} src={logo} alt="Stitchfix logo" />
-            </a>
-          </div>
           <nav css={navBar}>
             <div css={navULLeft}>
+              <a href="a#">
+                <img css={logoStyles} src={logo} alt="Stitchfix logo" />
+              </a>
               <a href="a#">Men </a>
               <a href="a#">Women </a>
               <a href="a#">Kids </a>
@@ -213,7 +270,7 @@ function App() {
               <a href="a#">Guide </a>
               <a href="a#">FAQ </a>
               <a href="a#">Gift Cards </a>
-              <button>Sign In</button>
+              <button css={signInButton}>Sign In</button>
             </div>
           </nav>
         </header>
@@ -222,7 +279,6 @@ function App() {
           <h1>Personal styling for everybody</h1>
           <button css={quizButton}>Take your style quiz</button>
         </section>
-
         <section css={videoDisplay}>
           <video
             src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/gateway-stitch-fix-video.10yH0.mp4"
@@ -313,11 +369,10 @@ function App() {
         <section></section>
 
         <footer css={footer}>
-          <div>
+          <div css={someDiv}>
             <div>Logo & Location</div>
-            <div>
+            <div css={bottomLinks}>
               <h3>Service</h3>
-
               <a href="a#">Iphone App</a>
               <a href="a#">Plus Sizes</a>
               <a href="a#">Gift Cards</a>
@@ -327,39 +382,37 @@ function App() {
               <a href="a#">Women's Jeans</a>
               <a href="a#">Business Casual</a>
             </div>
-            <div>
+            <div css={bottomLinks}>
               <h3>The Company</h3>
-
               <a href="a#">About Us</a>
               <a href="a#">Press</a>
               <a href="a#">Investor Relations</a>
               <a href="a#">Careers</a>
               <a href="a#">Tech Blog</a>
             </div>
-            <div>
+            <div css={bottomLinks}>
               <h3>Questions?</h3>
-
               <a href="a#">FAQ's</a>
               <a href="a#">Help</a>
             </div>
             <div>
-              <img alt="Facebook" />
-              <img alt="Instagram" />
+              <img src={fb} alt="Facebook" />
+              <img src={insta} alt="Instagram" />
               <img alt="Pinterest" />
               <img alt="Twitter" />
             </div>
           </div>
-          <div css={trademark}>
-            <p>Stitch Fix and Fix are trademarks of Stitch Fix, Inc.</p>
-            <p>
-              <a href="#a">Terms of Use</a> - <a href="#a">Privacy Policy</a> -{' '}
-              <a href="#a">Supply Chain Information</a> -{' '}
-              <a href="#a">Ad Choices</a> -{' '}
-              <a href="#a">CA Notice at Collection</a> -{' '}
-              <a href="#a">Cookies Settings</a> - <a href="#a">Sitemap</a>
-            </p>
-          </div>
         </footer>
+        <div css={trademark}>
+          <p>Stitch Fix and Fix are trademarks of Stitch Fix, Inc.</p>
+          <p>
+            <a href="#a">Terms of Use</a> - <a href="#a">Privacy Policy</a> -{' '}
+            <a href="#a">Supply Chain Information</a> -{' '}
+            <a href="#a">Ad Choices</a> -{' '}
+            <a href="#a">CA Notice at Collection</a> -{' '}
+            <a href="#a">Cookies Settings</a> - <a href="#a">Sitemap</a>
+          </p>
+        </div>
       </div>
     </>
   );
