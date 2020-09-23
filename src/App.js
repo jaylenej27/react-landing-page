@@ -33,15 +33,6 @@ const headerStyles = css`
   max-height: 44px;
 `;
 
-// const logoStyles = css`
-//   text-align: left;
-//   padding: 0 0.625rem 0 0.85rem;
-//   display: flex;
-//   margin: 0;
-//   align-items: top;
-//   max-height: 141px;
-// `;
-
 const navBar = css`
   top: 0;
   cursor: pointer;
@@ -184,32 +175,8 @@ const quizButton = css`
 
 const firstSectionStyle = css`
   ${centeredContainerStyles}
-  margin: 0 280px;
+  margin: 40px 280px;
   padding: 0 24px;
-
-  /* button {
-    bottom: 8px;
-    left: 16px;
-    background-color: red;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-  } */
-`;
-
-const imgButton = css`
-  button {
-    bottom: 8px;
-    left: 16px;
-    background-color: red;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-  }
 `;
 
 const categoryImageHolder = css`
@@ -229,38 +196,44 @@ const categoryImageHolder = css`
     flex-basis: auto;
   }
 
-  /* button {
+  button {
     bottom: 8px;
     left: 16px;
-    background-color: red;
-    color: white;
+    background-color: grey;
+    color: blue;
     font-size: 16px;
     padding: 12px 24px;
     border: none;
     cursor: pointer;
-  } */
-`;
-
-const categoryImageHolder2 = css`
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  /* position: relative;
-  text-align: center; */
-
-  img {
-    max-width: 19.75rem;
-    margin: 0 0.75rem;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
   }
 `;
 
 const secondSectionStyle = css`
   ${centeredContainerStyles}
+  border: 1px solid #e7e8e9;
+  margin: 0 110px;
+  padding: 30px 0;
+
+  ul {
+    display: flex;
+    text-align: center;
+    margin: 30px 0;
+    list-style: none;
+
+    li {
+      padding: 10px, 32px;
+      margin: ;
+      border-right: 1px solid #e7e8e9;
+    }
+  }
+`;
+
+const highlight = css`
+  strong {
+    background-image: linear-gradient(#fef399, #fef399);
+    background-position-x: 80%;
+    background-repeat: no repeat;
+  }
 `;
 
 const thirdSectionStyle = css`
@@ -273,6 +246,10 @@ const fourthSectionStyle = css`
 
 const fifthSectionStyle = css`
   ${centeredContainerStyles}
+  max-width: 44rem;
+  border: 1px solid #e7e8e9;
+  margin: 20px 25rem;
+  box-shadow: 10px 10px #e7e8e9;
 `;
 
 const footer = css`
@@ -297,7 +274,7 @@ const footer = css`
   }
 `;
 
-const someDiv = css`
+const finalDiv = css`
   ${centeredContainerStyles}
   margin: 0 280px;
   padding: 0 24px;
@@ -356,9 +333,8 @@ function App() {
         <header css={headerStyles}>
           <nav css={navBar}>
             <div css={navULLeft}>
-              <a href="a#">
-                <img src={logo} alt="Stitchfix logo" />
-              </a>
+              <img src={logo} alt="Stitchfix logo" />
+
               <a href="a#">Men </a>
               <a href="a#">Women </a>
               <a href="a#">Kids </a>
@@ -400,44 +376,48 @@ function App() {
                 src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-womens-plus-size-inclusive@1x.2GQbi.jpg"
                 alt="Stitch Fix plus-size clothing outfit including a plus-size navy and white printed jumpsuit with white tee."
               />
-              <button css={imgButton}>Women</button>
+              <button>Women</button>
             </a>
-            <a css={categoryImageHolder2} href="a#">
-              <img
-                src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-mens-casual-outdoor@1x.Ar-ie.jpg"
-                alt="Stitch Fix men’s outfit including a pink tee, tan windbreaker jacket and black jogger sweatpants."
-              />
-              <button css={imgButton}>Men</button>
-            </a>
-            <a css={categoryImageHolder} href="a#">
-              <img
-                src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-kids-activewear@1x.1L_Lm.jpg"
-                alt="Stitch Fix Kids blue ombre hoodie sweatshirt with palm tree graphic."
-              />
-              <button css={imgButton}>Kids</button>
-            </a>
+            <div css={categoryImageHolder}>
+              <a href="a#">
+                <img
+                  src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-mens-casual-outdoor@1x.Ar-ie.jpg"
+                  alt="Stitch Fix men’s outfit including a pink tee, tan windbreaker jacket and black jogger sweatpants."
+                />
+                <button>Men</button>
+              </a>
+            </div>
+            <div css={categoryImageHolder}>
+              <a href="a#">
+                <img
+                  src="https://d3ss0gp3e5d7m3.cloudfront.net/assets/images/desktop-kids-activewear@1x.1L_Lm.jpg"
+                  alt="Stitch Fix Kids blue ombre hoodie sweatshirt with palm tree graphic."
+                />
+                <button>Kids</button>
+              </a>
+            </div>
           </div>
         </section>
 
         <section css={secondSectionStyle}>
           <h2>How Stitch Fix works</h2>
           <ul>
-            <ol>
+            <li>
               Tell us your price range, size & style. You’ll pay just a $20
               styling fee, which gets credited toward pieces you keep.
-            </ol>
-            <ol>
+            </li>
+            <li>
               Get a Fix when you want. Try on pieces at home before you buy.
               Keep your favorites, send back the rest.
-            </ol>
-            <ol>
+            </li>
+            <li>
               Free shipping, returns & exchanges—a prepaid return envelope is
               included. There are no hidden fees, ever.
-            </ol>
+            </li>
           </ul>
-          <p>
-            No subscription required. Try Stitch Fix once or set up automatic
-            deliveries.
+          <p css={highlight}>
+            <strong>No subscription required.</strong> Try Stitch Fix once or
+            set up automatic deliveries.
           </p>
         </section>
 
@@ -470,7 +450,7 @@ function App() {
         <section></section>
 
         <footer css={footer}>
-          <div css={someDiv}>
+          <div css={finalDiv}>
             <div>Logo & Location</div>
             <div css={bottomLinks}>
               <h3>Service</h3>
