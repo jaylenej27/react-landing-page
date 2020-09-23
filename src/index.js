@@ -17,7 +17,7 @@ ReactDOM.render(
 
           body {
             margin: 0;
-            font-family: --sans-serif;
+            font-family: 'Cabin', sans-serif;
           }
 
           h2 {
