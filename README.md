@@ -15,3 +15,5 @@ http://vigorous-neumann-64c66f.netlify.app/
 ### CodeSandbox
 
 https://codesandbox.io/s/github/jaylenej27/react-landing-page
+
+<img src="./landing.png" alt="screenshot of top of page">
