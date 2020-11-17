@@ -360,7 +360,7 @@ function App() {
             loop
             playsInline
             autoPlay
-          ></video>
+          />
         </section>
 
         <section css={firstSectionStyle}>
@@ -442,12 +442,6 @@ function App() {
           <button css={quizButton}>Take your style quiz</button>
           <p>Already have an account? Sign in</p>
         </section>
-
-        <section></section>
-
-        <section></section>
-
-        <section></section>
 
         <footer css={footer}>
           <div css={finalDiv}>

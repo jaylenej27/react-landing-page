@@ -8,12 +8,8 @@ Still missing some elements, and some are close but not exact.
 
 Work by Jenna Koelbl, Sept 2020
 
-### Netlify
+### [Netlify](http://vigorous-neumann-64c66f.netlify.app/)
 
-http://vigorous-neumann-64c66f.netlify.app/
-
-### CodeSandbox
-
-https://codesandbox.io/s/github/jaylenej27/react-landing-page
+### [CodeSandbox](https://codesandbox.io/s/github/jaylenej27/react-landing-page)
 
 <img src="./public/landing.png" alt="screenshot of top of page">
